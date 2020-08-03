@@ -7,7 +7,9 @@ const IndexPage = () => {
 
   const homePage = locale.default ? "/home" : `${locale.path}/home`
 
-  return <div>{navigate(homePage)}</div>
+  if (typeof window !== "undefined") navigate(homePage)
+
+  return <div></div>
 }
 
 export default IndexPage
