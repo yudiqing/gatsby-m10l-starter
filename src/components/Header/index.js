@@ -7,6 +7,8 @@ import { useLocale } from "../LocaleProvider"
 import * as H from "./styled"
 
 const Header = () => {
+  const { locale } = useLocale()
+
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -16,11 +18,6 @@ const Header = () => {
       }
     }
   `)
-
-  const activeLocale = useLocale().locale
-  const defaultLocale = useLocale().defaultLocale
-
-  const language = !activeLocale ? defaultLocale : activeLocale
 
   return (
     <H.Header>
@@ -34,7 +31,7 @@ const Header = () => {
             return (
               <li key={menus[key].id}>
                 <H.NavItem to={menus[key].path}>
-                  {menus[key].translations[language]}
+                  {menus[key].translations[locale.siteLanguage]}
                 </H.NavItem>
               </li>
             )

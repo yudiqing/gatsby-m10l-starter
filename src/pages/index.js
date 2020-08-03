@@ -3,10 +3,9 @@ import { navigate } from "gatsby"
 import { useLocale } from "../components/LocaleProvider"
 
 const IndexPage = () => {
-  const activeLocale = useLocale().locale
-  const defaultLocale = useLocale().defaultLocale
-  const homePage =
-    activeLocale !== defaultLocale ? `${activeLocale}/home` : "/home"
+  const { locale } = useLocale()
+
+  const homePage = locale.default ? "/home" : `${locale.path}/home`
 
   return <div>{navigate(homePage)}</div>
 }

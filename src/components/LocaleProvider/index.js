@@ -4,9 +4,9 @@ import locales from "../../config/locales"
 const LocaleContext = createContext("")
 
 const determineDefaultLocale = () => {
-  for (const lang in locales) {
-    if (locales[lang].default) {
-      return lang
+  for (const language in locales) {
+    if (locales[language].default) {
+      return locales[language]
     }
   }
 }
@@ -16,12 +16,12 @@ const LocaleProvider = ({ children }) => {
 
   const [locale, setLocale] = useState(defaultLocale)
 
-  function changeLocale(lang) {
-    setLocale(lang)
+  function changeLocale(language) {
+    setLocale(locales[language])
   }
 
   return (
-    <LocaleContext.Provider value={{ locale, defaultLocale, changeLocale }}>
+    <LocaleContext.Provider value={{ locale, changeLocale }}>
       {children}
     </LocaleContext.Provider>
   )

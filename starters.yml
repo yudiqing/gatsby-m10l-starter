@@ -1,0 +1,15 @@
+- url: Link to a demo of your starter
+  repo: https://github.com/OnnoH/gatsby-m10l-starter
+  description: A multilingual Gatsby Starter
+
+  # These correspond to the category filters in the library
+  # See docs/categories.yml for valid tags.
+  tags:
+    - i18n
+    - Portfolio
+    - Blog
+
+  # Add your site features
+  # These will be included on your starter's detail page.
+  features:
+    - Generates a multilingual site for pages and blogs
